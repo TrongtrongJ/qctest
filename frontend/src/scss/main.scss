@@ -1,0 +1,47 @@
+@import './components/card';
+@import './layouts/columns';
+@import './typography/typography';
+
+:root {
+	font-size: 16px;
+	font-family: 'Prompt';
+	margin: 0;
+	--text-primary: #b6b6b6;
+	--text-secondary: #ececec;
+	--bg-primary: #23232e;
+	--bg-secondary: #141418;
+	--bg-secondary-highlight: #1e1e24;
+}
+
+#nprogress .bar {
+	background: purple;
+	z-index: 100000;
+}
+#nprogress .spinner {
+	display: none;
+}
+
+body {
+	color: black;
+	background-color: white;
+	margin: 0;
+	padding: 0;
+}
+
+body::-webkit-scrollbar {
+	width: 0.25rem;
+}
+body::-webkit-scrollbar-track {
+	background: #1e1e24;
+}
+body::-webkit-scrollbar-thumb {
+	background: #6649b8;
+}
+
+main {
+	padding: 1rem;
+
+	@media only screen and (min-width: 600px) {
+		margin-left: 5rem;
+	}
+}
