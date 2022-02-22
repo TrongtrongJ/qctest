@@ -15,7 +15,7 @@ export class PurchasesController {
 	@Serialize(PurchaseDto)
 	@ApiResponse({
 		type: [ PurchaseDto ],
-		description: 'Returns the list of purchase history, each with ticket type and qty with timestamp of purchase.',
+		description: 'Returns an array of purchase history, each with ticket type and qty with timestamp of purchase.',
 		status: 200
 	})
 	findAllPurchases() {

@@ -13,8 +13,8 @@ export class DailyTicketsController {
 	@Get()
 	@Serialize(DailyTicketsWithDateIdxDto)
 	@ApiResponse({
-		type: DailyTicketsWithDateIdxDto,
-		description: 'Returns the number of tickets left unsold by type of each days.',
+		type: [ DailyTicketsWithDateIdxDto ],
+		description: 'Returns an array of the number of tickets left unsold by type of all days.',
 		status: 200
 	})
 	async getDailyTicketsOfAllTime() {
@@ -25,7 +25,7 @@ export class DailyTicketsController {
 	@Serialize(DailyTicketsDto)
 	@ApiResponse({
 		type: DailyTicketsDto,
-		description: 'Returns the daily number of available tickets left of each type.',
+		description: 'Returns the daily number of available tickets left by type.',
 		status: 200
 	})
 	async getDailyTicketsOfToday() {
@@ -37,7 +37,7 @@ export class DailyTicketsController {
 	@Serialize(DailyTicketsDto)
 	@ApiResponse({
 		type: DailyTicketsDto,
-		description: 'Returns the number of available tickets left of each type of designated date.',
+		description: 'Returns the number of available tickets left unsold by type of designated date.',
 		status: 200
 	})
 	async getDailyTicketsOfDate(@Query() query: GetDailyTicketDto) {
