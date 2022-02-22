@@ -43,6 +43,6 @@ export class DailyTicketsController {
 	async getDailyTicketsOfDate(@Query() query: GetDailyTicketDto) {
 		const { day, month, year } = query;
 		if (!isValidDMY(day, month, year)) throw new BadRequestException('Invalid day/month/year');
-		return await this.dailyTicketsService.findOneOrCreate(dateFromDMY(day, month, year));
+		return await this.dailyTicketsService.findExistingOneOrCreate(dateFromDMY(day, month, year));
 	}
 }

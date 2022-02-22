@@ -17,27 +17,27 @@ export class DailyTicketsService {
     return await this.dailyTicketsRepo.find();
   }
 
-  async findOneByDate(date: Date) {
-    console.log(getDateIndexStringFromDate(date));
+  async findExistingOneByDate(date: Date) {
     return await this.dailyTicketsRepo.findOne({ dateIndex: getDateIndexStringFromDate(date) });
   }
 
-  async findOneOrCreate(date: Date) {
-    let existingDailyTickets = await this.findOneByDate(date);
+  async findExistingOneOrCreate(date: Date) {
+    let existingDailyTickets = await this.findExistingOneByDate(date);
     return existingDailyTickets || await this.create(date);
   }
 
   async findOneOfToday() {
-    return await this.findOneOrCreate(new Date());
+    return await this.findExistingOneOrCreate(new Date());
   }
 
 
   /**
-   * Once every 15 minutes from 0AM(12PM) to 1AM
+   * Once every 15 minutes from 0AM(12PM) to 1AM,
+   * find or create new Daily Tickets of the date.
    */ 
   @Cron('0 */15 0-1 * * *')
   async createDailyTicketsAtDawn() {
-    this.findOneOrCreate(new Date());
+    this.findExistingOneOrCreate(new Date());
   }
 
 	async purchaseTickets(ticketType: TicketType, qty: number, @TransactionManager() transaction?: EntityManager) {
