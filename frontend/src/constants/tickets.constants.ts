@@ -39,18 +39,18 @@ export const initialDailyTickets: BaseTicketTypeMap = {
 	b: 0,
 	c: 0,
 	d: 0
-};
+} as const;
 
 export const dailyTicketsLimit: BaseTicketTypeMap = {
 	a: 10,
 	b: 20,
 	c: 30,
 	d: 40
-};
+} as const;
 
 export const minimumTicketsPurchase: BaseTicketTypeMap = {
 	a: 1,
 	b: 2,
 	c: 2,
 	d: 3
-};
+} as const;
