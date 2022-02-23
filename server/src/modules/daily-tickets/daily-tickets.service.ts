@@ -40,7 +40,7 @@ export class DailyTicketsService {
     this.findExistingOneOrCreate(new Date());
   }
 
-	async purchaseTickets(ticketType: TicketType, qty: number, @TransactionManager() transaction?: EntityManager) {
+  async purchaseTickets(ticketType: TicketType, qty: number, @TransactionManager() transaction?: EntityManager) {
     const date = new Date();
 		let dailyTickets = await this.dailyTicketsRepo.findOne({ dateIndex: getDateIndexStringFromDate(date) });
     dailyTickets ??= await this.create(date);

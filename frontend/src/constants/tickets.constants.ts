@@ -1,9 +1,9 @@
-type TicketCatalogItem = {
+type TicketCatalogItem = Readonly<{
 	type: TicketType;
 	price: number;
 	limit: number;
 	minimum: number;
-};
+}>;
 
 export const ticketCatalog: TicketCatalogItem[] = [
 	{
