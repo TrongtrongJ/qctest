@@ -10,7 +10,7 @@ export class CashierSystemService {
 		productPrice = scaleUpToSafeInt(productPrice);
 		customerPaid = scaleUpToSafeInt(customerPaid);
 		let overPaid = customerPaid - productPrice;
-		if (overPaid < 0) return new BadRequestException('The paid amount should be higher than product price');
+		if (overPaid < 0) return new BadRequestException('The paid amount should be higher than the product price');
 		let totalReturn = 0;
 		const allCashTypes = Object.keys(upScaledCashValue).sort((bef, aft) => parseFloat(aft) - parseFloat(bef));
 		allCashTypes.forEach((cashType: CashType) => {
