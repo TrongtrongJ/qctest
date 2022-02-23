@@ -93,7 +93,7 @@ export class ChangesDto {
 
 	@Expose()
 	@ApiProperty({
-		description: 'Situational; Total value of changes left that cannot be returned',
+		description: 'Optional; Total value of changes left that cannot be returned',
 		type: 'number',
 		example: 0.1
 	})
