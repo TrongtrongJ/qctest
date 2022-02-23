@@ -9,7 +9,7 @@ export class GetDailyTicketDto {
 	@Max(31)
 	@ApiProperty({
 		type: 'number',
-		description: '"date" of the specific youd like to look into',
+		description: 'date of the specific date youd like to look into',
 		example: 30
 	})
 	day: number;
@@ -20,7 +20,7 @@ export class GetDailyTicketDto {
 	@Max(11)
 	@ApiProperty({
 		type: 'number',
-		description: '"month index" of the specific youd like to look into (month number - 1)',
+		description: 'month index of the specific date youd like to look into (month number - 1)',
 		example: 8
 	})
 	month: number;
@@ -29,7 +29,7 @@ export class GetDailyTicketDto {
 	@IsNumber()
 	@ApiProperty({
 		type: 'number',
-		description: '"month index" of the specific youd like to look into (month number - 1)',
+		description: 'year of the specific date youd like to look into',
 		example: 2021
 	})
 	year: number;
